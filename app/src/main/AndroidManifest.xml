@@ -13,6 +13,9 @@
         android:theme="@style/Theme.HelloAndroid"
         tools:targetApi="31">
         <activity
+            android:name=".ui.CameraComponent"
+            android:exported="false" />
+        <activity
             android:name=".ui.SecondActivity"
             android:exported="false" />
         <activity

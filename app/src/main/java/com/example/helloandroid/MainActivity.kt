@@ -6,9 +6,12 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import com.example.helloandroid.ui.CameraComponent3
 import com.example.helloandroid.ui.SecondActivity
 
 class MainActivity : AppCompatActivity() {
+
+    private val cameraComponent3 = CameraComponent3()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -35,6 +38,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+        // activity icinde manager classi lifecycle a bu sekilde dahil ediyorum.
+        lifecycle.addObserver(cameraComponent3)
+
+        // eger oncreate de add yapiyorsam, ondestroyda bunu remove etmeyi unutmuyorum..
+       // lifecycle.removeObserver(cameraComponent3)
     }
 
     override fun onStart() {
@@ -60,6 +69,8 @@ class MainActivity : AppCompatActivity() {
     override fun onDestroy() {
         Log.i("Mainactivity", "onDestroy")
         super.onDestroy()
+
+        lifecycle.removeObserver(cameraComponent3)
     }
 
     override fun onRestart() {

@@ -1,5 +1,6 @@
 package com.example.helloandroid.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
@@ -63,6 +64,10 @@ class SecondActivity : AppCompatActivity() {
 
          outState.putString("userfield", userField) */
 
+        /*outState.run {
+            putString()
+        }*/
+
         super.onSaveInstanceState(outState)
     }
 
@@ -80,6 +85,11 @@ class SecondActivity : AppCompatActivity() {
         Log.i("second activity", "onBackPressed")
 
         super.onBackPressed()
+    }
+
+    // notificationslarla calisirken lazim olacak.
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
     }
 
     override fun onUserLeaveHint() {
