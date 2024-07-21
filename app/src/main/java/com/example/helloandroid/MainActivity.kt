@@ -8,10 +8,14 @@ import android.widget.Button
 import android.widget.EditText
 import com.example.helloandroid.ui.CameraComponent3
 import com.example.helloandroid.ui.SecondActivity
+import com.example.helloandroid.ui.SettingsActivity
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var btnOpenSettingsActivity: Button
+
     private val cameraComponent3 = CameraComponent3()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -44,6 +48,12 @@ class MainActivity : AppCompatActivity() {
 
         // eger oncreate de add yapiyorsam, ondestroyda bunu remove etmeyi unutmuyorum..
        // lifecycle.removeObserver(cameraComponent3)
+
+        btnOpenSettingsActivity = findViewById<Button>(R.id.btnOpenSettingsActivity)
+        btnOpenSettingsActivity.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onStart() {
@@ -76,6 +86,10 @@ class MainActivity : AppCompatActivity() {
     override fun onRestart() {
         Log.i("Mainactivity", "onRestart")
         super.onRestart()
+    }
+
+    fun someBusinessLogic(name: String?, surname: String?): String?{
+        return "Hello $name $surname"
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

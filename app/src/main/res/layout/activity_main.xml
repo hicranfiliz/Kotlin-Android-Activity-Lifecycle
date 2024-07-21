@@ -8,8 +8,8 @@
     android:background="@android:color/holo_blue_bright"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tvHello"
+    <Button
+        android:id="@+id/btnOpenSettingsActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!" />
